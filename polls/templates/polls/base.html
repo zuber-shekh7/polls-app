@@ -10,7 +10,9 @@
         <h1>poll app</h1>
     </header>
     <nav>
-
+        <ul>
+            <li><a href="{% url 'polls:index' %}">home</a></li>
+        </ul>
     </nav>
     <main>
         {% block content %}

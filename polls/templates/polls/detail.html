@@ -5,8 +5,18 @@
     <h2>{{question.question_text}}</h2>
     <hr>
     <h3>choices</h3>
-    {% for choice in question.choice_set.all %}
-        <li><a href="">{{choice}}</a></li>
-    {% endfor %}
+    <form action="{% url 'polls:vote' question.id %}" method='POST'>
+        {% csrf_token %}
+        
+        {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}">
+            <label for="choice{{choice.id}}">{{choice.choice_text}}</label>
+            <br>
+        {% endfor %}
+        <input type="submit" value="vote">
+    </form>
+    <ul>
+        
+    </ul>
 </section>
 {% endblock content %}
