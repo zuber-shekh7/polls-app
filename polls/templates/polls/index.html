@@ -1,16 +1,23 @@
 {% extends 'polls/base.html' %}
 
 {% block content %}
-<section>
-    <h2>latest question</h2>
-    {% if latest_question_list %}
-        <ul>
-            {% for question in latest_question_list %}
-                <li><a href="{% url 'polls:detail' question.id %}">{{question}}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>no polls are available</p>
-    {% endif %}
-</section>
+<section class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="text-uppercase text-center">
+                <h2>latest question</h2>
+                <hr>
+                {% if latest_question_list %}
+                    <ul style="list-style: none;">
+                        {% for question in latest_question_list %}
+                            <li><a href="{% url 'polls:detail' question.id %}">{{question}}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>no polls are available</p>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+    </section>
 {% endblock content %}

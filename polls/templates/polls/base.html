@@ -1,25 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poll App</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
 </head>
 <body>
-    <header>
+    <!-- HEADER SECTION -->
+    <header class="container-fluid text-uppercase text-center bg-dark text-light py-1">
         <h1>poll app</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a href="{% url 'polls:index' %}">home</a></li>
+    <!-- NAVIGATION SECTION -->
+    <nav class="container text-uppercase ">
+        <ul class="navbar">
+            <li class="nav-link"><a class="nav-item" href="{% url 'polls:index' %}">home</a></li>
         </ul>
     </nav>
-    <main>
+    <!-- MAIN SECTION -->
+    <main class="container">
         {% block content %}
         {% endblock content %}
     </main>
-    <footer>
-
+    <!-- FOOTER SECTION -->
+    <footer class="container-fluid bg-dark text-light text-uppercase p-2">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="text-center">
+                    <h4>all rights are reserved</h4>
+                    <h5>copyright &copy; zuber shekh</h5>
+                    
+                </section>
+            </div>
+        </div>
     </footer>
+    <!-- SCRIPTS SECTION -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

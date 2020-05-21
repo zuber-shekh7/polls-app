@@ -1,22 +1,29 @@
 {% extends 'polls/base.html' %}
 
 {% block content %}
-<section>
-    <h2>{{question.question_text}}</h2>
-    <hr>
-    <h3>choices</h3>
-    <form action="{% url 'polls:vote' question.id %}" method='POST'>
-        {% csrf_token %}
-        
-        {% for choice in question.choice_set.all %}
-            <input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}">
-            <label for="choice{{choice.id}}">{{choice.choice_text}}</label>
-            <br>
-        {% endfor %}
-        <input type="submit" value="vote">
-    </form>
-    <ul>
-        
-    </ul>
+<section class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="container text-center">
+                <h2 class="text-capitalize">{{question.question_text}}</h2>
+                <hr>
+                <h3 class="text-uppercase">choices</h3>
+                <hr>
+                <form action="{% url 'polls:vote' question.id %}" method='POST'>
+                    {% csrf_token %}
+                    
+                    {% for choice in question.choice_set.all %}
+                        <div class="form-group">
+                            <label class="form-label text-capitalize" for="choice{{choice.id}}">{{choice.choice_text}}</label>
+                            <input class="form-control" type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}">
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <input class="text-uppercase btn btn-primary px-4" type="submit" value="vote">
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
 </section>
 {% endblock content %}
