@@ -1,7 +1,9 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse
-from .models import Question,Choice
+from django.views.generic import ListView
+
+from .models import Question,Choice,Category
 # Create your views here.
 
 
@@ -46,3 +48,9 @@ def vote(request,question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return redirect(reverse('polls:results',args=(question_id,)))
+
+
+class CategoryListView(ListView):
+    model = Category
+    context_object_name = 'categories'
+    template_name = 'polls/category_list.html'

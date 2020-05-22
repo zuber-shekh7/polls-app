@@ -1,0 +1,19 @@
+%}{% extends 'polls/base.html' %}
+
+{% block content %}
+<section class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="container text-center text-uppercase mb-2">
+                <h2 class="">categories</h2>
+                <hr>
+                <ul class="list-group text-uppercase">
+                    {% for category in categories %}
+                        <li class="list-group-item" >{{category}}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock content %}
