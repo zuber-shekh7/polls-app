@@ -15,3 +15,21 @@ class Choice(models.Model):
 
     def __str__(self):
         return f'{self.choice_text}'
+
+
+class Category(models.Model):
+
+    name = models.CharField(max_length=100)
+    description = models.TextField(null=True)
+    image = models.ImageField(null=True)
+    
+    def __str__(self):
+        return f'{self.name}'
+
+
+class Tag(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f'{self.name}'
